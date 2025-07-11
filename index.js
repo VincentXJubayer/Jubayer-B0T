@@ -38,7 +38,7 @@ global.countRestart = global.countRestart || 0;
 function startBot(message) {
     if (message) logger(message, "[ Starting ]");
 
-    const child = spawn("node", ["--trace-warnings", "--async-stack-traces", "Priyansh.js"], {
+    const child = spawn("node", ["--trace-warnings", "--async-stack-traces", "JUBAYER.js"], {
         cwd: __dirname,
         stdio: "inherit",
         shell: true
@@ -72,7 +72,7 @@ function startBot(message) {
                 startBot();
             } else {
                 logger(`Bot stopped after ${global.countRestart} restarts.`, "[ Stopped ]");
-                logger("To see detailed errors, check the logs above or run the bot with 'node Priyansh.js' directly", "[ Debug ]");
+                logger("To see detailed errors, check the logs above or run the bot with 'node JUBAYER.js' directly", "[ Debug ]");
             }
         } else {
             logger("Bot process exited with code 0 (normal exit)", "[ Exit ]");
@@ -92,7 +92,7 @@ try {
     logger(packageInfo.description, "[ DESCRIPTION ]");
     
     // Try to check for updates, but don't stop the bot if it fails
-    axios.get("https://raw.githubusercontent.com/codedbypriyansh/Priyansh-Bot/main/package.json")
+    axios.get("https://raw.githubusercontent.com/VincentXJubayer/Jubayer-B0T/main/package.json")
         .then((res) => {
             // Only log if successful, don't stop the bot if there's an error
             if (res.data && res.data.version) {
