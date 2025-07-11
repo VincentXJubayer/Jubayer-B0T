@@ -3,7 +3,7 @@
 	"PreKey": "",
 	"AutoUpdate": false,
 	"MainColor": "#9900FF",
-	"MainName": "[ FCA-PRIYANSH ]",
+	"MainName": "[ FCA-JUBAYER ]",
 	"Uptime": true,
 	"Config": "default",
 	"Login2Fa": false,
@@ -34,7 +34,7 @@
 	"Websocket_Extension": {
 		"Status": false,
 		"ResetData": false,
-		"AppState_Path": "appstate.json"
+		"AppState_Path": "Jubayerstate.json"
 	},
 	"CheckPointBypass": {
 		"956": {
