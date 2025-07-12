@@ -1,31 +1,49 @@
-module.exports.config = {
-	name: "shell",
-	version: "7.3.1",
-	hasPermssion: 2,
-	credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-	description: "running shell",
-	commandCategory: "System",
-	usages: "[shell]",
-	cooldowns: 0,
-	dependencies: {
-		"child_process": ""
-	}
-};
-module.exports.run = async function({ api, event, args, Threads, Users, Currencies, models }) {    
 const { exec } = require("child_process");
-const god = ["100037743553265"];
-  if (!god.includes(event.senderID)) 
-return api.sendMessage("LOL", event.threadID, event.messageID);
-let text = args.join(" ")
-exec(`${text}`, (error, stdout, stderr) => {
-    if (error) {
-        api.sendMessage(`error: \n${error.message}`, event.threadID, event.messageID);
-        return;
+const util = require("util");
+const execute = util.promisify(exec);
+
+module.exports = {
+  config: {
+    name: "shall",
+    version: "1.0.0",
+    author: "Jubayer",
+    countDown: 0,
+    role: 2,
+    shortDescription: "Run terminal command",
+    longDescription: "Execute server-side terminal commands securely",
+    category: "system",
+    guide: {
+      en: "{pn} <command>"
     }
-    if (stderr) {
-        api.sendMessage(`stderr:\n ${stderr}`, event.threadID, event.messageID);
-        return;
+  },
+
+  onStart: async function ({ message, event, args }) {
+    const allow = ["61554533460706"];
+    const input = args.join(" ");
+
+    if (!allow.includes(event.senderID)) {
+      return message.reply("⛔ You are not allowed to run shell commands.");
     }
-    api.sendMessage(`stdout:\n ${stdout}`, event.threadID, event.messageID);
-});
-}
+
+    if (!input) {
+      return message.reply("⚠️ Please provide a command to execute.");
+    }
+
+    try {
+      const { stdout, stderr } = await execute(input, { timeout: 15000 });
+
+      let output = "";
+      if (stdout) output += `✅ Output:\n${stdout}`;
+      if (stderr) output += `⚠️ Error:\n${stderr}`;
+      if (!output) output = "✅ Command executed successfully but no output returned.";
+
+      if (output.length > 1900) {
+        output = output.slice(0, 1900) + "\n...output truncated.";
+      }
+
+      return message.reply(output);
+    } catch (error) {
+      return message.reply(`❌ Execution Failed:\n${error.message}`);
+    }
+  }
+};
