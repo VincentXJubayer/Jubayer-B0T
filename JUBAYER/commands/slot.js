@@ -1,61 +1,61 @@
 module.exports.config = {
-    name: "slot",
-    version: "1.0.1",
-    hasPermssion: 0,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-    description: "fair play",
-    commandCategory: "game-sp",
-    usages: "[number coin required]",
-    cooldowns: 5,
+  name: "slot",
+  version: "2.0.0",
+  hasPermssion: 0,
+  credits: "Jubayer",
+  description: "🎰 Play slot machine and try your luck!",
+  commandCategory: "game",
+  usages: "[amount]",
+  cooldowns: 5
 };
 
 module.exports.languages = {
-    "vi": {
-        "missingInput": "[ SLOT ] Số tiền đặt cược không được để trống hoặc là số âm",
-        "moneyBetNotEnough": "[ SLOT ] Số tiền bạn đặt lớn hơn hoặc bằng số dư của bạn!",
-        "limitBet": "[ SLOT ] Số coin đặt không được dưới 50$!",
-        "returnWin": "🎰 %1 | %2 | %3 🎰\nBạn đã thắng với %4$",
-        "returnLose": "🎰 %1 | %2 | %3 🎰\nBạn đã thua và mất %4$"
-    },
-    "en": {
-        "missingInput": "[ SLOT ] The bet money must not be blank or a negative number",
-        "moneyBetNotEnough": "[ SLOT ] The money you betted is bigger than your balance!",
-        "limitBet": "[ SLOT ] Your bet is too low, the minimum is 50$",
-        "returnWin": "🎰 %1 | %2 | %3 🎰\nYou won with %4$",
-        "returnLose": "🎰 %1 | %2 | %3 🎰\nYou lost and loss %4$"
-    }
-}
+  en: {
+    missingInput: "❌ Please enter a valid bet amount!",
+    moneyBetNotEnough: "💸 You don't have enough coins to bet that amount!",
+    limitBet: "⚠️ Minimum bet is 50 coins!",
+    returnWin: "🎉 JACKPOT! 🎉\n🎰 %1 | %2 | %3 🎰\n💰 You won %4 coins!",
+    returnHalfWin: "✨ Lucky Spin! ✨\n🎰 %1 | %2 | %3 🎰\n🥈 You won %4 coins!",
+    returnLose: "😢 Better luck next time...\n🎰 %1 | %2 | %3 🎰\n💸 You lost %4 coins."
+  }
+};
 
-module.exports.run = async function({ api, event, args, Currencies, getText }) {
-    const { threadID, messageID, senderID } = event;
-    const { getData, increaseMoney, decreaseMoney } = Currencies;
-    const slotItems = ["🍇", "🍉", "🍊", "🍏", "7⃣", "🍓", "🍒", "🍌", "🥝", "🥑", "🌽"];
-    const moneyUser = (await getData(senderID)).money;
+module.exports.run = async function ({ api, event, args, Currencies, getText }) {
+  const { threadID, messageID, senderID } = event;
+  const { getData, increaseMoney, decreaseMoney } = Currencies;
 
-    var moneyBet = parseInt(args[0]);
-    if (isNaN(moneyBet) || moneyBet <= 0) return api.sendMessage(getText("missingInput"), threadID, messageID);
-	if (moneyBet > moneyUser) return api.sendMessage(getText("moneyBetNotEnough"), threadID, messageID);
-	if (moneyBet < 50) return api.sendMessage(getText("limitBet"), threadID, messageID);
-    var number = [], win = false;
-    for (i = 0; i < 3; i++) number[i] = Math.floor(Math.random() * slotItems.length);
-    if (number[0] == number[1] && number[1] == number[2]) {
-        moneyBet *= 9;
-        win = true;
-    }
-    else if (number[0] == number[1] || number[0] == number[2] || number[1] == number[2]) {
-        moneyBet *= 2;
-        win = true;
-    }
-    switch (win) {
-        case true: {
-            api.sendMessage(getText("returnWin", slotItems[number[0]], slotItems[number[1]], slotItems[number[2]], moneyBet), threadID, messageID);
-            await increaseMoney(senderID, moneyBet);
-            break;
-        }
-        case false: {
-            api.sendMessage(getText("returnLose", slotItems[number[0]], slotItems[number[1]], slotItems[number[2]], moneyBet), threadID, messageID);
-            await decreaseMoney(senderID, moneyBet);
-            break;
-        }
-    }
-}
+  const slotItems = ["🍒", "🍋", "🍉", "🍇", "🍓", "🍌", "7️⃣", "💎", "🍍", "🥝"];
+  const userData = await getData(senderID);
+  const balance = userData.money;
+
+  let bet = parseInt(args[0]);
+  if (isNaN(bet) || bet <= 0) return api.sendMessage(getText("missingInput"), threadID, messageID);
+  if (bet > balance) return api.sendMessage(getText("moneyBetNotEnough"), threadID, messageID);
+  if (bet < 50) return api.sendMessage(getText("limitBet"), threadID, messageID);
+
+  const spin = [
+    Math.floor(Math.random() * slotItems.length),
+    Math.floor(Math.random() * slotItems.length),
+    Math.floor(Math.random() * slotItems.length)
+  ];
+
+  const [a, b, c] = spin;
+  const resultIcons = `${slotItems[a]} | ${slotItems[b]} | ${slotItems[c]}`;
+  let resultText = "", reward = 0;
+
+  if (a === b && b === c) {
+    reward = bet * 10;
+    await increaseMoney(senderID, reward);
+    resultText = getText("returnWin", slotItems[a], slotItems[b], slotItems[c], reward);
+  }
+  else if (a === b || a === c || b === c) {
+    reward = bet * 2;
+    await increaseMoney(senderID, reward);
+    resultText = getText("returnHalfWin", slotItems[a], slotItems[b], slotItems[c], reward);
+  } else {
+    await decreaseMoney(senderID, bet);
+    resultText = getText("returnLose", slotItems[a], slotItems[b], slotItems[c], bet);
+  }
+
+  api.sendMessage(resultText, threadID, messageID);
+};
