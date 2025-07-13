@@ -4,7 +4,7 @@ const execute = util.promisify(exec);
 
 module.exports = {
   config: {
-    name: "shall",
+    name: "eval",
     version: "1.0.0",
     author: "Jubayer",
     countDown: 0,
@@ -22,7 +22,7 @@ module.exports = {
     const input = args.join(" ");
 
     if (!allow.includes(event.senderID)) {
-      return message.reply("⛔ You are not allowed to run shell commands.");
+      return message.reply("⛔ You are not allowed to run eval commands.");
     }
 
     if (!input) {
