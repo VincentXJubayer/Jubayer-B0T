@@ -3,35 +3,35 @@
 # Put the # character at the beginning of each sentence if you don't want the code to run those lines. 
 # Thanks to https://www.facebook.com/duong.than.net for translate to English!
 
-# Priyansh.js 
+# JUBAYER.js 
 
-priyansh.newVersionDetected=𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 %1, 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐢𝐬 %2. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐨𝐟 𝐟𝐨𝐫 𝐛𝐞𝐭𝐭𝐞𝐫 𝐛𝐨𝐭 𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞. 𝐅𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐲𝐩𝐞 𝐢𝐧 𝐜𝐨𝐧𝐬𝐨𝐥𝐞/𝐜𝐦𝐝: 𝐧𝐨𝐝𝐞 𝐮𝐩𝐝𝐚𝐭𝐞
-priyansh.errorFormat=Malformed module!
-priyansh.nameExist=Module's name is similar to another module!
-priyansh.notFoundLanguage=Module %1 don't support your language
-priyansh.notFoundPackage=Can't find package %1 support for module %2, installing...
-priyansh.cantInstallPackage=Can't install package %1 for module %2, error: %3
-priyansh.loadedPackage=Installed whole package successfully for module %1
-priyansh.loadedConfig=Installed config successfully for module %1
-priyansh.cantLoadConfig=Can't install config of module %1, error: %2
-priyansh.cantOnload=Can't launch setup of module %1, error: %1
-priyansh.successLoadModule=Successfully installed module %1
-priyansh.failLoadModule=Can't install module %1, error: %2
-priyansh.finishLoadModule=Installed %1 module commands and %2 module events successfully 
-priyansh.foundPathAppstate=Found appstate file now logging in...
+jubayer.newVersionDetected=𝐘𝐨𝐮 𝐚𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 %1, 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐢𝐬 %2. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐨𝐟 𝐟𝐨𝐫 𝐛𝐞𝐭𝐭𝐞𝐫 𝐛𝐨𝐭 𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞. 𝐅𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞 𝐭𝐲𝐩𝐞 𝐢𝐧 𝐜𝐨𝐧𝐬𝐨𝐥𝐞/𝐜𝐦𝐝: 𝐧𝐨𝐝𝐞 𝐮𝐩𝐝𝐚𝐭𝐞
+jubayer.errorFormat=Malformed module!
+jubayer.nameExist=Module's name is similar to another module!
+jubayer.notFoundLanguage=Module %1 don't support your language
+jubayer.notFoundPackage=Can't find package %1 support for module %2, installing...
+jubayer.cantInstallPackage=Can't install package %1 for module %2, error: %3
+jubayer.loadedPackage=Installed whole package successfully for module %1
+jubayer.loadedConfig=Installed config successfully for module %1
+jubayer.cantLoadConfig=Can't install config of module %1, error: %2
+jubayer.cantOnload=Can't launch setup of module %1, error: %1
+jubayer.successLoadModule=Successfully installed module %1
+jubayer.failLoadModule=Can't install module %1, error: %2
+jubayer.finishLoadModule=Installed %1 module commands and %2 module events successfully 
+jubayer.foundPathAppstate=Found appstate file now logging in...
 priyansh.notFoundPathAppstate=Error can't find appstate file maybe file is malformed!
-priyansh.checkListGban=Checking global ban list...
-priyansh.banDevice=Your device have been banned from Priyanshproject, please contact to facebook https://fb.me/Priyanshu.Rajput.official to know more information or asking for unban key, if you already have unban key, please fill it below.
-priyansh.keyNotSameFormat=Wrong format, code must contain 6 number.
+jubayer.checkListGban=Checking global ban list...
+jubayer.banDevice=Your device have been banned from Priyanshproject, please contact to facebook https://fb.me/Priyanshu.Rajput.official to know more information or asking for unban key, if you already have unban key, please fill it below.
+jubayer.keyNotSameFormat=Wrong format, code must contain 6 number.
 priyansh.codeInputExpired=Your code is wrong or out of date.
-priyansh.unbanDeviceSuccess=Your device are unban now, please restart to use.
-priyansh.userBanned=You had been banned from Priyanshproject when %1 with reason: %2. Please contact to facebook https://fb.me/Priyanshu.Rajput.official to have more information!
-priyansh.finishCheckListGban=Checked global ban list
-priyansh.handleListenError=handleListene has occurred some unexpected errorr, error : %1
-priyansh.warningSourceCode=DETECTED THAT SOURCE CODE'S STRUCTURE HAD BEEN CHANGED , STOP NOW!
-priyansh.refreshListen=Refreshed handleListener...
-priyansh.successConnectDatabase=Connected to database successfully!
-priyansh.failConnectDatabase=Failed to connect to database, error: %1
+jubayer.unbanDeviceSuccess=Your device are unban now, please restart to use.
+jubayer.userBanned=You had been banned from Priyanshproject when %1 with reason: %2. Please contact to facebook https://fb.me/Priyanshu.Rajput.official to have more information!
+jubayer.finishCheckListGban=Checked global ban list
+jubayer.handleListenError=handleListene has occurred some unexpected errorr, error : %1
+jubayer.warningSourceCode=DETECTED THAT SOURCE CODE'S STRUCTURE HAD BEEN CHANGED , STOP NOW!
+jubayer.refreshListen=Refreshed handleListener...
+jubayer.successConnectDatabase=Connected to database successfully!
+jubayer.failConnectDatabase=Failed to connect to database, error: %1
 
 # includes/listen.js
 
